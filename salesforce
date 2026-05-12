@@ -1,0 +1,248 @@
+Cc salesforce
+Step 1: Login to Salesforce
+1. Open Browser
+Open Google Chrome
+2. Go to Salesforce
+Type in search bar:
+https://login.salesforce.com
+Press Enter
+3. Login
+Enter:
+•	Username 
+•	Password 
+Click:
+Log In
+________________________________________
+Step 2: Switch to Lightning Experience
+After login, check top-right corner.
+If you see:
+Switch to Lightning Experience
+Click it.
+(If already in Lightning mode, skip this step)
+________________________________________
+Step 3: Open Object Manager
+At top right click:
+⚙️ Setup (Gear Icon)
+Then click:
+Setup
+A new page opens.
+At top, click:
+Object Manager
+________________________________________
+Step 4: Create Custom Object
+Click:
+Create → Custom Object
+Now fill details:
+Object Label:
+Type:
+Student Detail
+Plural Label:
+Type:
+Student Details
+Object Name:
+It fills automatically.
+________________________________________
+Step 5: Select Optional Features
+Tick these options:
+✅ Allow Reports
+✅ Allow Activities
+Leave other options default.
+Click:
+Save
+________________________________________
+Step 6: Add Email Field
+After saving, left side menu opens.
+Click:
+Fields & Relationships
+Then click:
+New
+________________________________________
+Select Data Type
+Choose:
+Email
+Click:
+Next
+________________________________________
+Field Label
+Type:
+Email
+Click:
+Next
+Again click:
+Next
+Then click:
+Save
+________________________________________
+Step 7: Add Phone Field
+Again click:
+New
+Select:
+Phone
+Click:
+Next
+Field Label:
+Phone
+Click:
+Next → Next → Save
+________________________________________
+Step 8: Add Date of Birth Field
+Again click:
+New
+Select:
+Date
+Click:
+Next
+Field Label:
+Date of Birth
+Click:
+Next → Next → Save
+Now your custom object has 3 fields:
+•	Email 
+•	Phone 
+•	Date of Birth 
+________________________________________
+Step 9: Create Tab
+Go back to Setup home.
+In left Quick Find search box type:
+Tabs
+Click:
+Tabs
+________________________________________
+Create New Tab
+Under Custom Object Tabs
+Click:
+New
+________________________________________
+Select Object
+Choose:
+Student Detail
+Select any tab style/icon
+Example:
+📘 Book icon
+Click:
+Next
+Click:
+Next
+Click:
+Save
+________________________________________
+Step 10: Open App Manager
+In Quick Find search:
+App Manager
+Click:
+App Manager
+________________________________________
+Step 11: Create New Lightning App
+Click:
+New Lightning App
+________________________________________
+Fill App Details
+App Name:
+Type:
+Student Details Manager
+Developer Name:
+Auto fills as:
+Student_Details_Manager
+Click:
+Next
+________________________________________
+Step 12: App Options
+Leave all default settings
+Click:
+Next
+________________________________________
+Step 13: Utility Items
+Leave default
+Click:
+Next
+________________________________________
+Step 14: Add Navigation Items
+Find:
+Student Detail
+Select it
+Click right arrow (>)
+Move it to Selected Items
+Click:
+Next
+________________________________________
+Step 15: Assign User Profile
+Find:
+System Administrator
+Move it to Selected Profiles
+Click:
+Save & Finish
+________________________________________
+Step 16: Open Your App
+Top-left click:
+App Launcher (9 dots)
+Search:
+Student Details Manager
+Click it
+Your custom app opens.
+________________________________________
+Step 17: Add Student Record
+Click:
+Student Details
+Then click:
+New
+Fill details like:
+Name:
+Rahul
+Email:
+rahul@gmail.com
+Phone:
+9876543210
+Date of Birth:
+01/01/2004
+Click:
+Save
+________________________________________
+Step 18: Copy URL
+After record opens
+Go to browser top address bar
+Copy the full URL
+Shortcut:
+Ctrl + C
+________________________________________
+Step 19: Open Developer Tools
+Open new Chrome tab
+Shortcut:
+Ctrl + T
+Then click:
+⋮ (3 dots top-right)
+Go to:
+More Tools → Developer Tools
+OR directly press:
+Ctrl + Shift + I
+________________________________________
+Step 20: Paste URL
+Inside Developer Tools use required section (usually Console)
+Paste copied URL:
+Ctrl + V
+________________________________________
+Easy Remember Flow
+1.
+Login Salesforce
+2.
+Setup → Object Manager → Create Custom Object
+3.
+Add Fields
+•	Email 
+•	Phone 
+•	Date of Birth 
+4.
+Create Tab
+5.
+App Manager → New Lightning App
+6.
+Add Student Detail in Navigation
+7.
+Open App
+8.
+Create Student Record
+9.
+Copy URL
+10.
+Chrome → Developer Tools → Paste URL
+That’s the complete practical in simple steps.
+
