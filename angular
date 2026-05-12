@@ -1,0 +1,177 @@
+Angular commands
+1.	node -v
+2.	npm –version
+3.	npm install -g @angular/cli
+4.	ng version
+5.	ng new student-auth-app
+6.	yes,css,no ssr
+7.	cd student-auth-app
+8.	ng g c register : shortcut/ng generate component register : longform
+9.	ng g c login
+10.	ng g c profile
+11.	ng serve
+12.	go to vs code
+
+login code
+*login.css*
+.box {
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ccc;
+  background: white;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #2196F3;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+*login.html*
+<div class="box">
+  <h2>Login</h2>
+
+  <input [(ngModel)]="email" placeholder="Email">
+  <input [(ngModel)]="password" type="password" placeholder="Password">
+
+  <p class="error">{{error}}</p>
+
+  <button (click)="login()">Login</button>
+</div>
+*login.ts*
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './login.html',
+  styleUrl: './login.css'
+})
+export class LoginComponent {
+  email = '';
+  password = '';
+  error = '';
+
+  constructor(private router: Router) {}
+
+  login() {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+    if (!this.email || !this.password) {
+      this.error = 'All fields required';
+      return;
+    }
+
+    if (this.email === user.email && this.password === user.password) {
+      this.router.navigate(['/profile']);
+    } else {
+      this.error = 'Invalid credentials';
+    }
+  }
+}
+
+*register code*
+*register.css*
+.box {
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ccc;
+  background: white;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+*register.html*
+<div class="box">
+  <h2>Register</h2>
+
+  <input [(ngModel)]="name" placeholder="Name">
+  <input [(ngModel)]="email" placeholder="Email">
+  <input [(ngModel)]="password" type="password" placeholder="Password">
+
+  <p class="error">{{error}}</p>
+
+  <button (click)="register()">Register</button>
+</div>
+*register.ts*
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-register',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './register.html',
+  styleUrl: './register.css'
+})
+export class RegisterComponent {
+  name = '';
+  email = '';
+  password = '';
+  error = '';
+
+  constructor(private router: Router) {}
+
+  register() {
+    if (!this.name || !this.email || !this.password) {
+      this.error = 'All fields are required';
+      return;
+    }
+
+    const user = {
+      name: this.name,
+      email: this.email,
+      password: this.password
+    };
+
+    localStorage.setItem('user', JSON.stringify(user));
+    this.router.navigate(['/login']);
+  }
+}
+*profile code*
+*profile.css*
+.box {
+  width: 350px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ccc;
+  background: white;
+}
+*profile.html*
