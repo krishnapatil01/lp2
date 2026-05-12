@@ -1,0 +1,274 @@
+Step 1: Create NAT Network in VirtualBox
+1. Open VirtualBox
+Click Start
+Search Oracle VM VirtualBox
+Open it
+2. Go to Preferences
+
+At the top menu:
+
+File → Preferences
+
+3. Open Network Settings
+
+In the left side menu, click:
+
+Network
+
+You will see tabs.
+
+4. Create NAT Network
+Click NAT Networks
+Click the + (Add) button
+
+A new NAT network will be created.
+
+5. Edit NAT Network
+
+Select the new NAT network and click the Edit (pencil icon)
+
+Check:
+✅ Enable Network
+
+You can keep default settings.
+
+Example:
+
+Network CIDR: 10.0.2.0/24
+
+Click OK
+
+Then click OK again.
+
+Step 2: Connect Both Virtual Machines to NAT Network
+
+You need to do this for both Ubuntu and Kali Linux
+
+For Ubuntu Machine
+1. Right-click Ubuntu VM
+
+In VirtualBox main screen
+
+Right-click Ubuntu
+
+Click:
+
+Settings
+
+2. Open Network
+
+From left menu click:
+
+Network
+
+3. Change Adapter
+
+In Adapter 1
+
+Tick:
+✅ Enable Network Adapter
+
+In Attached to, select:
+
+NAT Network
+
+In Name, select the NAT network you created
+
+Example:
+NatNetwork
+
+Click OK
+
+For Kali Linux Machine
+
+Repeat same steps:
+
+Right-click Kali Linux
+
+Settings → Network → Adapter 1
+
+Change:
+
+Attached to → NAT Network
+Select same network name
+
+Click OK
+
+Step 3: Start Both Virtual Machines
+
+Start:
+
+Ubuntu
+Kali Linux
+
+Wait until both fully open.
+
+Step 4: Install Net-tools
+
+This helps to check IP address.
+
+In Ubuntu
+
+Open Terminal
+
+Shortcut:
+
+Ctrl + Alt + T
+
+Type:
+
+sudo apt update
+sudo apt install net-tools
+
+Press Enter
+
+If password asks, type password.
+
+In Kali Linux
+
+Open Terminal
+
+Type:
+
+sudo apt update
+sudo apt install net-tools
+
+Press Enter
+
+Step 5: Check Ubuntu IP Address
+
+In Ubuntu terminal type:
+
+ifconfig
+
+Press Enter
+
+Look for:
+
+inet
+
+Example:
+
+10.0.2.4
+
+This is Ubuntu’s IP address.
+
+Write it down.
+
+Step 6: Create File in Kali Linux
+
+Open Kali Terminal
+
+Type:
+
+nano Test_file.txt
+
+Press Enter
+
+Write anything inside file
+
+Example:
+
+Hello from Kali Linux
+
+Save file:
+
+Press:
+
+Ctrl + O
+
+Press Enter
+
+Then exit:
+
+Ctrl + X
+
+Step 7: Install SSH Server on Ubuntu (if needed)
+
+In Ubuntu terminal:
+
+sudo apt install openssh-server
+
+Press Enter
+
+Step 8: Transfer File from Kali to Ubuntu
+
+Go to Kali terminal
+
+Type:
+
+scp Test_file.txt username@ubuntu_ip:
+
+Example:
+
+scp Test_file.txt raghav@10.0.2.4:
+
+Where:
+
+Test_file.txt = file name
+raghav = Ubuntu username
+10.0.2.4 = Ubuntu IP address
+
+Press Enter
+
+It will ask:
+
+Are you sure you want to continue connecting?
+
+Type:
+
+yes
+
+Press Enter
+
+Then enter Ubuntu password.
+
+File will transfer successfully.
+
+Step 9: Verify File in Ubuntu
+
+Go to Ubuntu terminal
+
+Type:
+
+ls
+
+Press Enter
+
+You should see:
+
+Test_file.txt
+
+This means file transfer is successful ✅
+
+Final Flow (Easy Remember)
+
+1. Create NAT Network
+File → Preferences → Network → NAT Networks → Add
+
+2. Connect both VMs
+Right click VM → Settings → Network → NAT Network
+
+3. Start both machines
+
+4. Install net-tools
+
+sudo apt install net-tools
+
+5. Check Ubuntu IP
+
+ifconfig
+
+6. Create file in Kali
+
+nano Test_file.txt
+
+7. Transfer file
+
+scp Test_file.txt username@IP:
+
+8. Check in Ubuntu
+
+ls
+
+That’s the complete practical in simple steps.
