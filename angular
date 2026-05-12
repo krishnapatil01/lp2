@@ -41,6 +41,7 @@ button {
 .error {
   color: red;
 }
+
 *login.html*
 <div class="box">
   <h2>Login</h2>
@@ -52,6 +53,7 @@ button {
 
   <button (click)="login()">Login</button>
 </div>
+
 *login.ts*
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -116,6 +118,7 @@ button {
 .error {
   color: red;
 }
+
 *register.html*
 <div class="box">
   <h2>Register</h2>
@@ -128,6 +131,7 @@ button {
 
   <button (click)="register()">Register</button>
 </div>
+
 *register.ts*
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -164,6 +168,7 @@ export class RegisterComponent {
     this.router.navigate(['/login']);
   }
 }
+
 *profile code*
 *profile.css*
 .box {
@@ -174,4 +179,64 @@ export class RegisterComponent {
   box-shadow: 0 0 10px #ccc;
   background: white;
 }
+
 *profile.html*
+<div class="box">
+  <h2>User Profile</h2>
+
+  <p><strong>Name:</strong> {{user.name}}</p>
+  <p><strong>Email:</strong> {{user.email}}</p>
+  <p><strong>Password:</strong> {{user.password}}</p>
+</div>
+
+*profile.ts*
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-profile',
+  standalone: true,
+  templateUrl: './profile.html',
+  styleUrl: './profile.css'
+})
+export class ProfileComponent {
+  user = JSON.parse(localStorage.getItem('user') || '{}');
+}
+
+*app code*
+*app.config.ts*
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideRouter(routes)]
+};
+
+*app.routes.ts*
+import { Routes } from '@angular/router';
+import { RegisterComponent } from './register/register';
+import { LoginComponent } from './login/login';
+import { ProfileComponent } from './profile/profile';
+
+export const routes: Routes = [
+  { path: '', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent }
+];
+
+*app.html*
+<router-outlet></router-outlet>
+
+*app.ts*
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: './app.html'
+})
+export class App {}
+
+
